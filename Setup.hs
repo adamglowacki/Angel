@@ -10,20 +10,7 @@ import Distribution.Verbosity
 
 
 main :: IO ()
-main = defaultMainWithHooks simpleUserHooks
-    {
-      preTest = myTestHook
-    }
-
-
--------------------------------------------------------------------------------
-myTestHook
-    :: Args
-    -> TestFlags
-    -> IO HookedBuildInfo
-myTestHook _ _ = do
-    buildTestFixtures
-    return emptyHookedBuildInfo
+main = buildTestFixtures
 
 
 -------------------------------------------------------------------------------
